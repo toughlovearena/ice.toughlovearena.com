@@ -67,6 +67,7 @@ sudo lsof -i -P -n | grep turnserver
 
 ## debugging
 
+- [coturn config docs](https://github.com/coturn/coturn/blob/master/examples/etc/turnserver.conf)
 - [certbot docs about permissions](https://eff-certbot.readthedocs.io/en/stable/using.html#where-are-my-certificates)
 - [Fixing with certbot hook](https://serverfault.com/a/984575)
 - [Fixing with certbot override](https://community.jitsi.org/t/tip-coturn-certbot-issue-on-debian-buster/68822)
