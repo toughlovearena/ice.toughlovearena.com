@@ -9,6 +9,9 @@ Guide to installing the coturn server for STUN/TURN on a fresh box
 # setup nginx to serve hello page
 sudo apt install nginx
 
+# move in nginx conf
+sudo cp setup/nginx_starter.conf /etc/nginx/sited-enabled/default
+
 # (optional firewall stuff) confirm Nginx Full is listed, then allow it
 sudo ufw app list
 sudo ufw allow 'Nginx Full'
@@ -42,9 +45,8 @@ sudo vi /etc/default/coturn
 # Move the original turnserver configuration file to a backup in the same directory
 sudo mv /etc/turnserver.conf /etc/turnserver.conf.original
 
-# Touch and then copy/paste the contents of the turnserver.conf
-sudo touch /etc/turnserver.conf
-sudo vi /etc/turnserver.conf
+# Copy/paste setup/turnserver.conf
+sudo cp setup/turnserver.conf /etc/turnserver.conf
 
 # create folder for turnserver certs
 mkdir -p /etc/coturn/certs
@@ -53,8 +55,7 @@ chmod -R 700 /etc/coturn/
 
 # set certbot hooks to provide accessible certs to turnserver
 # copy/paste the contents of coturn-certbot-deploy.sh
-touch /etc/letsencrypt/renewal-hooks/deploy/coturn-certbot-deploy.sh
-vi /etc/letsencrypt/renewal-hooks/deploy/coturn-certbot-deploy.sh
+cp setup/coturn-certbot-deploy.sh /etc/letsencrypt/renewal-hooks/deploy/coturn-certbot-deploy.sh
 chmod 700 /etc/letsencrypt/renewal-hooks/deploy/coturn-certbot-deploy.sh
 
 # start coturn
