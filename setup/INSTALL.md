@@ -12,6 +12,9 @@ sudo apt install nginx
 # move in nginx conf
 sudo cp setup/nginx_starter.conf /etc/nginx/sited-enabled/default
 
+# setup index.html for nginx
+cp index.html /home/
+
 # (optional firewall stuff) confirm Nginx Full is listed, then allow it
 sudo ufw app list
 sudo ufw allow 'Nginx Full'
