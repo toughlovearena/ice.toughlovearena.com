@@ -58,6 +58,9 @@ chmod -R 700 /etc/coturn/
 cp setup/coturn-certbot-deploy.sh /etc/letsencrypt/renewal-hooks/deploy/coturn-certbot-deploy.sh
 chmod 700 /etc/letsencrypt/renewal-hooks/deploy/coturn-certbot-deploy.sh
 
+# force certbot renew to run hooks
+sudo certbot --force-renewal
+
 # start coturn
 sudo systemctl restart coturn
 
